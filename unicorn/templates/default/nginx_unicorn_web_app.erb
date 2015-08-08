@@ -71,7 +71,7 @@ server {
 <% (node[:virtual_hosts] || []).each do |virtual_host| %>
   server {
     listen 80;
-    server_name <%= virtual_host[:aliases].join(" ") %>;
+    server_name <%= virtual_host[:aliases] %>;
     return 301 <%= virtual_host[:hostname] %>$request_uri;
   }
 <% end %>
